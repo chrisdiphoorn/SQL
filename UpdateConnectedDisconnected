@@ -1,7 +1,8 @@
 
+A Stored Proceedure to add to record when a user has logged in or out or become Connected or Disconnected 
+Used in a RDS Server Environment. 
 
-
-`
+```
 GO
 -- =============================================
 -- Author:		Chris Diphoorn
@@ -56,5 +57,5 @@ IF @LastAction ='Active' and @ParIdle is not null
 UPDATE dbo.UserActions SET Idle = @ParIdle WHERE ID in (SELECT TOP (1) ID FROM dbo.UserActions WHERE UserName = @ParUserName and Server = @ParServer and Action = 'Active' ORDER BY Date DESC)
 
 END;
-`
+```
 
