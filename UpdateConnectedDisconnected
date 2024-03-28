@@ -1,9 +1,10 @@
 
 
 
-`GO
+`
+GO
 -- =============================================
--- Author:		Chris DIphoorn
+-- Author:		Chris Diphoorn
 -- Create date: 16-01-2020
 -- a Script on HCC-GC-CB01 c:\Scripts\UpdateConnectedDisconnected.ps1 runs this Store Proceedure every 5 mins
 -- =============================================
@@ -54,5 +55,6 @@ UPDATE dbo.UserActions SET Idle = @ParIdle WHERE ID in (SELECT TOP (1) ID FROM d
 IF @LastAction ='Active' and @ParIdle is not null
 UPDATE dbo.UserActions SET Idle = @ParIdle WHERE ID in (SELECT TOP (1) ID FROM dbo.UserActions WHERE UserName = @ParUserName and Server = @ParServer and Action = 'Active' ORDER BY Date DESC)
 
-END;`
+END;
+`
 
